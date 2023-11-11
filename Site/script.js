@@ -1,7 +1,15 @@
 function searchTCC() {
+    var searchCriteria = document.getElementById("searchCriteria").value;
+    var searchTerm = document.getElementById("searchInput").value;
+
+    console.log("Critério de pesquisa: " + searchCriteria);
+    console.log("Termo de pesquisa: " + searchTerm);
+}
+
+function searchTCC() {
     const fakeResults = [
-        { title: 'TCC 1', preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-        { title: 'TCC 2', preview: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+        { title: 'TCC 1', preview: '' },
+        { title: 'TCC 2', preview: '' },
     ];
 
     displayResults(fakeResults);

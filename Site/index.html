@@ -14,26 +14,30 @@
             <img class="logotipo" src="https://unifev.edu.br/img/logounifev-rodape.png" alt="Logotipo Unifev" id="logo">
         </a>
 
-        <nav>
-            <ul>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#pesquisa">Pesquisar TCC</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section id="pesquisa">
         <h2>Pesquisar TCC</h2>
-        <label for="searchInput">Digite o título do TCC:</label>
+        <label for="searchInput"><strong>Escolha o critério de pesquisa:</strong></label>
+        <select id="searchCriteria">
+            <option value="orientador">Orientador<option>
+            <option value="tema">Tema</option>
+            <option value="titulo">Título</option>
+            <option value="date">Data de Criação</option>
+            <option value="autor">Autor</option>
+        </select>
+        <br>
+        <br>
         <input type="text" id="searchInput" placeholder="Digite aqui">
         <button onclick="searchTCC()">Pesquisar</button>
         <div id="searchResults"></div>
     </section>
 
     <footer>
-        <p>&copy; 2023 UNIFEV. Todos os direitos reservados.</p>
+        <p>&copy; 2023 UNIFEV. Todos os direitos reservados</p>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
