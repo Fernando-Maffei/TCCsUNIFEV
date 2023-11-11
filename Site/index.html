@@ -4,43 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Repositório Institucional</title>
+    <title>Repositório de TCC</title>
 </head>
 <body>
 
     <header>
-        <h1>Nome da Instituição</h1>
+
+        <a href="https://unifev.edu.br/" target="__blank">
+            <img class="logotipo" src="https://unifev.edu.br/img/logounifev-rodape.png" alt="Logotipo Unifev" id="logo">
+        </a>
+
         <nav>
             <ul>
-                <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#pesquisa">Pesquisar TCC</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Texto informativo sobre a instituição.</p>
-    </section>
-
-    <section id="projetos">
-        <h2>Projetos</h2>
-        <ul>
-            <li>Projeto 1</li>
-            <li>Projeto 2</li>
-            <!-- Adicione mais projetos conforme necessário -->
-        </ul>
-    </section>
-
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Informações de contato da instituição.</p>
+    <section id="pesquisa">
+        <h2>Pesquisar TCC</h2>
+        <label for="searchInput">Digite o título do TCC:</label>
+        <input type="text" id="searchInput" placeholder="Digite aqui">
+        <button onclick="searchTCC()">Pesquisar</button>
+        <div id="searchResults"></div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Nome da Instituição. Todos os direitos reservados.</p>
+        <p>&copy; 2023 UNIFEV. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
