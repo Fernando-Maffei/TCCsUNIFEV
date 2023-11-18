@@ -1,31 +1,46 @@
 <?php
+// Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomeArquivo = $_FILES["file"]["name"];
-    $tipoArquivo = $_FILES["file"]["type"];
-    $tamanhoArquivo = $_FILES["file"]["size"];
-    $caminhoTemporario = $_FILES["file"]["tmp_name"];
+    // Configurações de conexão com o banco de dados
+    $host = "localhost";  // Altere para o host do seu banco de dados
+    $usuario = "root";    // Altere para o usuário do seu banco de dados
+    $senha = "";          // Altere para a senha do seu banco de dados
+    $banco = "RepositorioTCC"; // Altere para o nome do seu banco de dados
 
+    // Conectar ao banco de dados
+    $conexao = new mysqli($host, $usuario, $senha, $banco);
 
-    $conexao = new mysqli("http://127.0.0.1:8050/", "FEZX");
-
-  
+    // Verificar a conexão
     if ($conexao->connect_error) {
-        die("Erro na conexão: " . $conexao->connect_error);
+        die("Erro na conexão com o banco de dados: " . $conexao->connect_error);
     }
 
-   
-    $dadosArquivo = file_get_contents($caminhoTemporario);
-    $dadosArquivo = $conexao->real_escape_string($dadosArquivo);
+    // Obter dados do formulário
+    $title = $_POST["title"];
+    $preview = $_POST["preview"];
 
-    
-    $inserirArquivo = $conexao->query("INSERT INTO arquivos (nome, mime, dados) VALUES ('$nomeArquivo', '$tipoArquivo', '$dadosArquivo')");
+    // Manipular o upload do arquivo PDF
+    $targetDirectory = "/uploads";  // Diretório onde os arquivos serão armazenados
+    $targetFile = __DIR__ . '/' . $targetDirectory . basename($_FILES["pdfFile"]["name"]);
 
-    if ($inserirArquivo) {
-        echo "Arquivo enviado com sucesso!";
+    if (move_uploaded_file($_FILES["pdfFile"]["tmp_name"], $targetFile)) {
+        // Caminho do PDF no servidor
+        $pdfPath = $targetFile;
+
+        // Inserir dados no banco de dados
+        $sql = "INSERT INTO tccs (title, preview, pdf_path) VALUES ('$title', '$preview', '$pdfPath')";
+        if ($conexao->query($sql) === TRUE) {
+            echo "Dados inseridos com sucesso.";
+        } else {
+            echo "Erro ao inserir dados: " . $conexao->error;
+        }
     } else {
-        echo "Erro ao enviar o arquivo: " . $conexao->error;
+        echo "Erro ao fazer upload do arquivo.";
     }
 
+    // Fechar a conexão
     $conexao->close();
 }
+header("Location: index.html");
+exit; // Certifique-se de parar a execução do script após o redirecionamento
 ?>

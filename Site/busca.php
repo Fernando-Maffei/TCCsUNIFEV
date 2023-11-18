@@ -1,11 +1,11 @@
 <?php
-// Função para realizar a pesquisa no banco de dados
+// Função para realizar a busca no banco de dados
 function searchTCC($searchCriteria, $searchTerm) {
     // Configurações de conexão com o banco de dados
     $host = "localhost";  // Altere para o host do seu banco de dados
     $usuario = "root";    // Altere para o usuário do seu banco de dados
     $senha = "";          // Altere para a senha do seu banco de dados
-    $banco = "seu_banco"; // Altere para o nome do seu banco de dados
+    $banco = "repositoriotcc"; // Altere para o nome do seu banco de dados
 
     // Conectar ao banco de dados
     $conexao = new mysqli($host, $usuario, $senha, $banco);
@@ -16,7 +16,7 @@ function searchTCC($searchCriteria, $searchTerm) {
     }
 
     // Consulta SQL para buscar TCCs com base nos critérios de pesquisa
-    $sql = "SELECT title, preview FROM tccs WHERE $searchCriteria LIKE '%$searchTerm%'";
+    $sql = "SELECT id, title, preview, pdf_path FROM tccs WHERE $searchCriteria LIKE '%$searchTerm%'";
     $resultado = $conexao->query($sql);
 
     // Exibir os resultados
@@ -28,7 +28,7 @@ function searchTCC($searchCriteria, $searchTerm) {
 
 // Função para exibir os resultados
 function displayResults($results) {
-    $resultsContainer = '<div id="searchResults"></div>';
+    $resultsContainer = '<div id="searchResults">';
 
     if ($results->num_rows === 0) {
         $resultsContainer .= 'Nenhum resultado encontrado.';
@@ -36,16 +36,21 @@ function displayResults($results) {
         while ($result = $results->fetch_assoc()) {
             $resultElement = '<div>';
             $resultElement .= '<h3>' . $result["title"] . '</h3>';
-            $resultElement .= '<p>' . $result["autor"] . '</p>';
+            $resultElement .= '<p>' . $result["preview"] . '</p>';
+
+            // Adiciona um link para a pré-visualização do PDF
+            $resultElement .= '<a href="visualizar_pdf.php?id=' . $result["id"] . '" target="_blank">Visualizar PDF</a>';
+
             $resultElement .= '</div>';
             $resultsContainer .= $resultElement;
         }
     }
 
+    $resultsContainer .= '</div>';
     echo $resultsContainer;
 }
 
-
+// Exemplo de uso
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $searchCriteria = $_POST["searchCriteria"];
     $searchTerm = $_POST["searchInput"];

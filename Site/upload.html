@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Upload</title>
+</head>
+<body>
+    <h1>Formulário de Upload</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/Site/index.html">PESQUISA TCC</a></li>
+        </ul>
+    </nav>
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="title">Título:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="preview">Prévia:</label>
+        <textarea name="preview" id="preview" rows="4" required></textarea>
+
+        <label for="pdfFile">Arquivo PDF:</label>
+        <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" required>
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+</body>
+</html>
