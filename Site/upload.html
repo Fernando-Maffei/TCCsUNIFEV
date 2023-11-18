@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Formulário de Upload</title>
 </head>
 <body>
-    <h1>Formulário de Upload</h1>
+    <header>
+    <a href="https://unifev.edu.br/" target="__blank">
+        <img class="logotipo" src="https://unifev.edu.br/img/logounifev-rodape.png" alt="Logotipo Unifev" id="logoup">
+        <nav>
+            <ul>
+                <li><a href="/Site/index.html" class="btn">PESQUISA TCC</a></li>
+            </ul>
+        </nav>
+    </a>
+  
 
-    <nav>
-        <ul>
-            <li><a href="/Site/index.html">PESQUISA TCC</a></li>
-        </ul>
-    </nav>
-
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <h1 class="formularioUP">Formulário de Upload</h1>
+    
+    <form action="upload.php" method="post" enctype="multipart/form-data" class="formupload">
+        <br><br><br>
         <label for="title">Título:</label>
         <input type="text" name="title" id="title" required>
-
+        <br>  <br>   <br>
         <label for="preview">Prévia:</label>
         <textarea name="preview" id="preview" rows="4" required></textarea>
-
+        <br> <br> <br> <br>
         <label for="pdfFile">Arquivo PDF:</label>
         <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" required>
 
@@ -28,5 +35,6 @@
 
 
     </form>
+</header>
 </body>
 </html>
