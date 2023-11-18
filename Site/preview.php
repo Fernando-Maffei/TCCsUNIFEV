@@ -12,7 +12,7 @@
 
     <script>
         var viewer = new Viewer(document.getElementById('viewer'), {
-            url: 'preview.php?file=<?php echo urlencode('caminho/para/seu/arquivo.pdf'); ?>',
+            url: 'preview.php?file=<?php echo urlencode('/tccs'); ?>',
             navbar: false,
             toolbar: {
                 zoomIn: 4,

@@ -8,12 +8,7 @@
 </head>
 <body>
 
-
-    
-
-
-
-    <header>
+        <header>
 
         <a href="https://unifev.edu.br/" target="__blank">
             <img class="logotipo" src="https://unifev.edu.br/img/logounifev-rodape.png" alt="Logotipo Unifev" id="logo">
@@ -23,25 +18,34 @@
                 <li><a href="/Site/upload.php">Upload</a></li>
             </ul>
         </nav>
-
-    </header>
-
-    <section id="pesquisa">
-        <h2>Pesquisar TCC</h2>
-        <label for="searchInput"><strong>Escolha o critério de pesquisa:</strong></label>
-        <select id="searchCriteria">
-            <option value="orientador">Orientador<option>
-            <option value="tema">Tema</option>
-            <option value="titulo">Título</option>
-            <option value="date">Data de Criação</option>
+        <nav class="pesquisa">
+            <h1>Pesquisa de TCC</h1>
+            
+    <form action="busca.php" method="post" class="pesquisa2">
+        <br>
+        <label for="searchCriteria">Critério de Pesquisa:</label>
+        <select name="searchCriteria" id="searchCriteria">
+            <!-- Adicione opções conforme necessário -->
+            <option value="title">Título</option>
             <option value="autor">Autor</option>
+
         </select>
         <br>
         <br>
-        <input type="text" id="searchInput" placeholder="Digite aqui">
-        <button onclick="searchTCC()">Pesquisar</button>
-        <div id="searchResults"></div>
-    </section>
+        <label for="searchInput">Termo de Pesquisa:</label>
+        <input type="text" name="searchInput" id="searchInput" required>
+
+        <input type="submit" value="Pesquisar">
+    </form>
+
+    <div id="searchResults">
+        <!-- Os resultados serão exibidos aqui -->
+    </div>
+</nav>
+
+
+
+    </header>
 
     <footer>
         <p>&copy; 2023 UNIFEV. Todos os direitos reservados</p>
@@ -49,7 +53,7 @@
 
 
     
-    <script src="upload.php"></script>
+    <script src="busca.php"></script>
 
 </body>
 </html>

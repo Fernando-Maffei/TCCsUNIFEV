@@ -41,7 +41,7 @@ section {
 }
 
 footer {
-    background-color: #f39c12;
+    background-color: #e67e22;
     color: #ffffff;
     text-align: center;
     padding: 1em;
@@ -51,22 +51,21 @@ footer {
     height: 35px;
 }
 
-#pesquisa {
+.pesquisa2 {
     text-align: center;
     background-color: #0e0e7d;
     color: #ffffff;
-    width: 40%; 
     height: 600px; 
-    margin: 1px;
- 
 }
 
-#pesquisa h2 {
-    color: black;
+.pesquisa{
+    color: white;
     text-align: center;
     margin-top: 0.5px;
     background-color: #e67e22;
     height: 35px; 
     color: #ffffff;
+    width: 40%; 
+    height: 100px; 
+    margin: 1px;
 }
-
