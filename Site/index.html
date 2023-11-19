@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,41 +16,35 @@
         </a>
         <nav>
             <ul>
-                <li><a href="/Site/upload.html" class="btn">Upload</a></li>
+                <li><a href="/Site/log.html" class="btn">Upload</a></li>
             </ul>
         </nav>
         <nav class="pesquisa">
-            <h1>Pesquisa de TCC</h1>
-            
-    <form action="busca.php" method="post" class="pesquisa2">
-        <br>
-        <label for="searchCriteria">Critério de Pesquisa:</label>
-        <select name="searchCriteria" id="searchCriteria">
-            <!-- Adicione opções conforme necessário -->
-            <option value="title">Título</option>
-            <option value="preview">Autor</option>
-
-        </select>
-        <br>
-        <br>
-        <label for="searchInput">Termo de Pesquisa:</label>
-        <input type="text" name="searchInput" id="searchInput" required>
-
-        <input type="submit" value="Pesquisar">
-    </form>
-
-    <div id="searchResults">
-        <!-- Os resultados serão exibidos aqui -->
-    </div>
+            <div class="container">
+                <!-- Formulário de Busca -->
+                <form action="busca.php" method="post" class="pesquisa2">
+                    <label for="searchCriteria">Critério de Pesquisa:</label>
+                    <select name="searchCriteria" id="searchCriteria">
+                        <option value="documents.nome">Nome do Documento</option>
+                        <option value="autores.nome">Nome do Autor</option>
+                        <!-- Adicione mais opções conforme necessário -->
+                    </select>
+                    <label for="searchInput">Termo de Pesquisa:</label>
+                    <input type="text" name="searchInput" id="searchInput" required>
+                    <input type="submit" value="Pesquisar">
+                </form>
+        
+                <!-- Resultados da Busca -->
+                <div id="searchResults">
+                    
+                </div>
+        
+            </div>
+        
 </nav>
 
-
-
-    </header>
-
-    <footer>
-        <p>&copy; 2023 UNIFEV. Todos os direitos reservados</p>
-    </footer>
+ </header>
 
 </body>
 </html>
+

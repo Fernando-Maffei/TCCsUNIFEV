@@ -16,24 +16,31 @@
             </ul>
         </nav>
     </a>
-  
 
     <h1 class="formularioUP">Formulário de Upload</h1>
     
+    <!-- Formulário de Upload -->
     <form action="upload.php" method="post" enctype="multipart/form-data" class="formupload">
-        <br><br><br>
-        <label for="title">Título:</label>
-        <input type="text" name="title" id="title" required>
-        <br>  <br>   <br>
-        <label for="preview">Prévia:</label>
-        <textarea name="preview" id="preview" rows="4" required></textarea>
-        <br> <br> <br> <br>
+        <label for="docName">Nome do Documento:</label>
+        <input type="text" name="docName" id="docName" required>
+        <br> <br>
+        <label for="theme">Tema:</label>
+        <input type="text" name="theme" id="theme">
+        <br> <br>
+        <label for="creationDate">Data de Criação:</label>
+        <input type="date" name="creationDate" id="creationDate">
+        <br> <br>
+        <label for="advisor">Orientador:</label>
+        <input type="text" name="advisor" id="advisor">
+        <br> <br>
+        <label for="author">Nome do Autor:</label>
+        <input type="text" name="author" id="author" required>
+        <br> <br>
+
+        
         <label for="pdfFile">Arquivo PDF:</label>
         <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" required>
-
         <input type="submit" value="Enviar">
-
-
     </form>
 </header>
 </body>

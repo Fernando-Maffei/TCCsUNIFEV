@@ -38,13 +38,7 @@ body {
     color: rgb(255, 123, 0);
    }
    
-   p {
-    color: rgb(255, 123, 0);
-    position: relative;
-    top: 300px; 
-    left: 20px;
 
-   }
    
    footer {
     background-color: #333;
@@ -89,4 +83,6 @@ body {
     width: 300px; 
     height: auto;
 
-   } 
+}
+
+
